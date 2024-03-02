@@ -190,3 +190,8 @@ Run order2_ode_num with the said parameters
 Execute python3 plot_fft.py -n 60 -k 0.4 -theta 0.79 -fs 10001
 
 *************************************************************************************************************
+
+For all purposes, w_num = Omega is hard coded to 1 (the ratio of Omega to kappa determines the dynamics, we set kappa to be the independent parameter).
+The Jupyter notebooks provide the code for second and third order cumulant equation derivation.
+
+*************************************************************************************************************
