@@ -6,7 +6,7 @@ A. Mukherjee et. al. "Symmetries and Correlations in Continuous Time Crystals"
 
 Requirements:
 
-The code requires MATLAB and python to generate the datasets and plot the same. We have tested the code on pyhton=3.12.2 and MATLAB R2023b.
+The code requires MATLAB and python to generate the datasets and plot the same. We have tested the code on python=3.12.2 and MATLAB R2023b.
 
 For python, the requirements are listed in requirements.txt and can be installed using
 
@@ -20,7 +20,7 @@ Make sure there is a folder data/ in the current directory.
 
 *************************************************************************************************************
 
-To run a code, just run the code from the folder with suitable arguments as
+Run the code from the folder with suitable arguments
 
 python3 <code name>.py -arguments
 
