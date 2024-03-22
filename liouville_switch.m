@@ -3,7 +3,7 @@
 k = 0.4; % Set kappa as per master equation. Omega is set to 1
 N = 60; % Number of spins
 num_eigs = 80; % Number of eigenvalues to terminate to
-operator = ["jz","jz"]; % Operators producted (eg: use ["jx","jy","jz"] if you want Sx*Sy^2)
+operator = ["jz"]; % Operators producted (eg: use ["jx","jy","jz"] if you want Sx*Sy^2)
 theta=pi/4;
 
 %% Read Liovillians and compute eigs

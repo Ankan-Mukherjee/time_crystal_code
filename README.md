@@ -186,7 +186,8 @@ Run plot_fft.py
 Code:
 Execute python3 liouvillian_generator.py -n 60 -k 0.4 -ops 
 Run liouville_switch.m with the said parameters
-Run order2_ode_num with the said parameters
+Run order1_ode_num.m with the said parameters
+Run order2_ode_num.m with the said parameters
 Execute python3 plot_fft.py -n 60 -k 0.4 -theta 0.79 -fs 10001
 
 *************************************************************************************************************
