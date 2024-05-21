@@ -10,7 +10,7 @@ import os
 parser = argparse.ArgumentParser()
 parser.add_argument('-n', '--num_spins', nargs='+', default=[50,200], type=int, help='list of number of spins')
 parser.add_argument('-k', '--kappa', default=0.4, type=float, help='kappa, see the master equation')
-parser.add_argument('-theta', '--theta', default=0.0, type=float, help='theta')
+parser.add_argument('-state', '--state', default=1, type=int, help='state number for initial state')
 parser.add_argument('-fs', '--fs', default=1001, type=int, help='samples per second')
 parser.add_argument('-q', action='store_true', help='quiet mode')
 parser.add_argument('--format', type=str, default='eps', help='file format (eps/jpg/png etc.)')
@@ -30,14 +30,14 @@ create_directory(directory)
 
 κ = args.kappa
 Nb = args.num_spins
-theta = args.theta
 fs = args.fs
+state_number = args.state
 
 Y = dict()
 
 for N in Nb:
-    Y[N]=np.genfromtxt(f"data/N00N_theta_{theta:.2f}_k_{κ:.2f}_N_{N:03d}.csv", delimiter=",")
-Y_inf_matlab = np.genfromtxt(f"data/N00N_theta_{theta:.2f}_k_{κ:.2f}_N_inf_matlab.csv", delimiter=",")
+    Y[N]=np.genfromtxt(f"data/evolution/state_{state_number:03d}_k_{κ:.2f}_N_{N:03d}.csv", delimiter=",")
+Y_inf_matlab = np.genfromtxt(f"data/evolution/state_{state_number:03d}_k_{κ:.2f}_N_inf_matlab.csv", delimiter=",")
 
 
 y_labels=[r'$\kappa t$',

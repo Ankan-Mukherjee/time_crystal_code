@@ -1,5 +1,3 @@
-syms m_x(t) m_y(t) m_z(t) ch_xx(t) ch_xy(t) ch_xz(t) ch_yy(t) ch_yz(t) ch_zz(t) k w;
-
 %% Setup
 
 %1: m_x
@@ -14,25 +12,13 @@ syms m_x(t) m_y(t) m_z(t) ch_xx(t) ch_xy(t) ch_xz(t) ch_yy(t) ch_yz(t) ch_zz(t) 
 
 w_num=1.0;
 k_list = [0.5:0.01:0.99, 1.0:0.05:5.0];
-theta = 0.79;
-phi = 0;
 fs = 1001;
 
 
 %% State Initializations
-m_x_0 = 0.7071;
-m_y_0 = 0.0;
-m_z_0 = 0.0;
-ch_xx_0 = 0.0;
-ch_xy_0 = 0.0;
-ch_xz_0 = 0.0;
-ch_yy_0 = 0.0;
-ch_yz_0 = 0.0;
-ch_zz_0 = 0.0;
-
-
-% vec0 = vec_0_from_state_prep;
-vec0 = [m_x_0,m_y_0,m_z_0,ch_xx_0,ch_xy_0,ch_xz_0,ch_yy_0,ch_yz_0,ch_zz_0];
+state_number=2;
+vec0_filename = sprintf('data/init/%03d_so.csv',state_number);
+vec0 = readmatrix(vec0_filename,'Whitespace','()');
 
 
 %% ODE
@@ -43,9 +29,10 @@ for k_num = k_list
     [T, Y] = ode15s(@(t,vec) order2(t,vec,k_num,w_num), tSpan, vec0);
     Y=real(Y);
     data = horzcat(k_num*T,Y);
-    filename = sprintf('data/N00N_theta_%0.2f_k_%0.2f_N_inf_matlab_mf.csv',theta,k_num);
+    filename = sprintf('data/evolution/state_%03d_k_%0.2f_N_inf_matlab.csv',state_number,k_num);
     writematrix(data, filename);
 end
+
 
 function diff = order2(t,vec,k_num,w_num)
     diff = [...
